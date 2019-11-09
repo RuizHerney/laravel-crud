@@ -17,8 +17,6 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->double('price');
-            $table->bigInteger('id_section');
-            $table->bigInteger('id_state');
             $table->string('country_origin');
             $table->timestamps();
         });
