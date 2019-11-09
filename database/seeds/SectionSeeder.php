@@ -14,13 +14,15 @@ class SectionSeeder extends Seeder
     {
         DB::table('sections')->insert(
             [
-                'name' => 'Camisas'
-            ],
-            [
-                'name' => 'Pantalones'
-            ],
-            [
-                'name' => 'Chaquetas'
+                [
+                    'name' => 'Camisas'
+                ],
+                [
+                    'name' => 'Pantalones'
+                ],
+                [
+                    'name' => 'Chaquetas'
+                ]
             ]
         );
     }
