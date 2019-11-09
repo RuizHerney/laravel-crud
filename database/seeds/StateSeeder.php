@@ -12,12 +12,14 @@ class StateSeeder extends Seeder
      */
     public function run()
     {
-        DB: table('states')->insert(
+        DB::table('states')->insert(
             [
-                'name' => 'Activo/a'
-            ],
-            [
-                'name' => 'Inactivo/a'
+                [
+                    'name' => 'Activo/a'
+                ],
+                [
+                    'name' => 'Inactivo/a'
+                ]
             ]
         );
     }
