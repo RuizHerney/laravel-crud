@@ -18,22 +18,22 @@ class ProductSeeder extends Seeder
                     'name' => 'Camisa - red',
                     'price' => 15.000,
                     'country_origin' => 'Colombia',
-                    'id_section' => 1,
-                    'id_state' => 1
+                    'section_id' => 1,
+                    'state_id' => 1
                 ],
                 [
                     'name' => 'Pantalon - blue',
                     'price' => 20.000,
                     'country_origin' => 'Venezuela',
-                    'id_section' => 2,
-                    'id_state' => 1
+                    'section_id' => 2,
+                    'state_id' => 1
                 ],
                 [
                     'name' => 'Chaqueta - yellow',
                     'price' => 25.000,
                     'country_origin' => 'Chile',
-                    'id_section' => 3,
-                    'id_state' => 2
+                    'section_id' => 3,
+                    'state_id' => 2
                 ]
             ]
         );
