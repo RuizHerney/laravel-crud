@@ -15,11 +15,11 @@ class AddForeignKeys extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             
-            $table->bigInteger('id_section')->unsigned();
-            $table->bigInteger('id_state')->unsigned();
+            $table->bigInteger('section_id')->unsigned();
+            $table->bigInteger('state_id')->unsigned();
 
-            $table->foreign('id_section')->references('id')->on('sections');
-            $table->foreign('id_state')->references('id')->on('states');
+            $table->foreign('section_id')->references('id')->on('sections');
+            $table->foreign('state_id')->references('id')->on('states');
 
         });
     }
