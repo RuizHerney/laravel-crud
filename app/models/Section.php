@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Section extends Model
 {
-   protected $fillacle = [
+   protected $fillable = [
         'name'
    ];
 }
