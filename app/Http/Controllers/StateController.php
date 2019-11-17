@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\State;
+use App\models\State;
 use Illuminate\Http\Request;
 
 class StateController extends Controller
@@ -14,7 +14,9 @@ class StateController extends Controller
      */
     public function index()
     {
-        //
+        $states = State::all()->sortBy('id');
+
+        return view('state.list', compact($states));
     }
 
     /**
@@ -24,7 +26,7 @@ class StateController extends Controller
      */
     public function create()
     {
-        //
+        return view('state.create');
     }
 
     /**
@@ -35,16 +37,18 @@ class StateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        State::create($request->all());
+
+        redirect()->route('State.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\State  $state
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(State $state)
+    public function show($id)
     {
         //
     }
@@ -52,34 +56,44 @@ class StateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\State  $state
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(State $state)
+    public function edit($id)
     {
-        //
+        $state = State::findOrFail($id);
+
+        return view('state.edit', compact($state));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\State  $state
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, State $state)
+    public function update(Request $request, $id)
     {
-        //
+        $state = State::findOrFail($id);
+
+        $state->update($request->all());
+
+        redirect()->route('State.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\State  $state
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(State $state)
+    public function destroy($id)
     {
-        //
+        $state = State::findOrFail($id);
+
+        $state->delete();
+
+        redirect()->route('State.index');
     }
 }
