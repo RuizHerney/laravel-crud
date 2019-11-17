@@ -18,7 +18,7 @@ class ProductController extends Controller
             ->join('states', 'products.state_id', '=', 'states.id')
             ->select('products.*', 'sections.name as section', 'states.name as state')->get();
 
-        return view('product.list', compact($products));
+        return view('product.list', compact('products'));
     }
 
     /**
@@ -41,7 +41,7 @@ class ProductController extends Controller
     {
         Product::create($request->all());
 
-        redirect()->route('Product.index');
+        return redirect()->route('Product.index');
     }
 
     /**
@@ -65,7 +65,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        return view('products.edit', compact('product'));
+        return view('product.edit', compact('product'));
     }
 
     /**
@@ -81,7 +81,7 @@ class ProductController extends Controller
 
         $product->update($request->all());
 
-        redirect()->route('Product.index');
+        return redirect()->route('Product.index');
     }
 
     /**
@@ -96,6 +96,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        redirect()->route('Product.index');
+        return redirect()->route('Product.index');
     }
 }

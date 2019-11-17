@@ -16,7 +16,7 @@ class StateController extends Controller
     {
         $states = State::all()->sortBy('id');
 
-        return view('state.list', compact($states));
+        return view('state.list', compact('states'));
     }
 
     /**
@@ -39,7 +39,7 @@ class StateController extends Controller
     {
         State::create($request->all());
 
-        redirect()->route('State.index');
+        return redirect()->route('State.index');
     }
 
     /**
@@ -63,7 +63,7 @@ class StateController extends Controller
     {
         $state = State::findOrFail($id);
 
-        return view('state.edit', compact($state));
+        return view('state.edit', compact('state'));
     }
 
     /**
@@ -79,7 +79,7 @@ class StateController extends Controller
 
         $state->update($request->all());
 
-        redirect()->route('State.index');
+        return redirect()->route('State.index');
     }
 
     /**
@@ -94,6 +94,6 @@ class StateController extends Controller
 
         $state->delete();
 
-        redirect()->route('State.index');
+        return redirect()->route('State.index');
     }
 }

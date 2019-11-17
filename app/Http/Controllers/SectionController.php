@@ -16,7 +16,7 @@ class SectionController extends Controller
     {
         $sectins = Section::all()->sortBy('id');
 
-        return view('section.list', compact($sectins));
+        return view('section.list', compact('sectins'));
     }
 
     /**
@@ -39,7 +39,7 @@ class SectionController extends Controller
     {
         Section::create($request->all());
 
-        redirect()->route('Section.index');
+        return redirect()->route('Section.index');
     }
 
     /**
@@ -79,7 +79,7 @@ class SectionController extends Controller
 
         $section->update($request->all());
 
-        redirect()->route('Section.index');
+        return redirect()->route('Section.index');
     }
 
     /**
@@ -94,6 +94,6 @@ class SectionController extends Controller
 
         $section->delete();
 
-        redirect()->route('Section.index');
+        return redirect()->route('Section.index');
     }
 }
