@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Section;
+use App\models\Section;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -14,7 +14,9 @@ class SectionController extends Controller
      */
     public function index()
     {
-        //
+        $sectins = Section::all()->sortBy('id');
+
+        return view('section.list', compact($sectins));
     }
 
     /**
@@ -24,7 +26,7 @@ class SectionController extends Controller
      */
     public function create()
     {
-        //
+        return view('section.create');
     }
 
     /**
@@ -35,51 +37,63 @@ class SectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Section::create($request->all());
+
+        redirect()->route('Section.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Section  $section
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Section $section)
+    public function show($id)
     {
-        //
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Section  $section
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Section $section)
+    public function edit($id)
     {
-        //
+        $section = Section::findOrFail($id);
+
+        return view('section.edit', compact('section'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Section  $section
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Section $section)
+    public function update(Request $request, $id)
     {
-        //
+        $section = Section::findOrFail($id);
+
+        $section->update($request->all());
+
+        redirect()->route('Section.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Section  $section
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Section $section)
+    public function destroy($id)
     {
-        //
+        $section = Section::findOrFail($id);
+
+        $section->delete();
+
+        redirect()->route('Section.index');
     }
 }
