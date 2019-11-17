@@ -11,6 +11,16 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('Product.index');
 });
+
+Route::Resource('Product', 'ProductController');
+
+Route::Resource('Section', 'SectionController');
+
+Route::Resource('State', 'StateController');
