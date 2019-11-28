@@ -12,34 +12,37 @@
     <div class="container-fluid">
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">
-                    <img width="30px" src="{{ asset('src/icons/icon.svg') }}" alt="logo">
-                </a>
+                <div class="container">
 
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar">
-                    <span class="navbar.navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="navbar-nav">
-                        <li  class="nav-item">
-                            <a class="nav-link" href="{{ route('Product.index') }}">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('Section.index') }}">Secciones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('State.index') }}">Estados</a>
-                        </li>
-                    </ul>
+                    <a class="navbar-brand" href="/">
+                        <img width="30px" src="{{ asset('src/icons/icon.svg') }}" alt="logo">
+                    </a>
+                    
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar">
+                        <span class="navbar.navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="navbar-nav ml-auto">
+                            <li  class="nav-item">
+                                <a class="nav-link" href="{{ route('Product.index') }}">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('Section.index') }}">Secciones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('State.index') }}">Estados</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
-            @yield('header')
         </header>
 
-        <main>
-
-            @yield('main')
+        <main class="my-5 mx-auto">
+            <div class="row">
+                @yield('main')
+            </div>
         </main>
 
         <footer>

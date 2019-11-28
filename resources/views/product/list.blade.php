@@ -1,12 +1,7 @@
 @extends('layouts.template')
 
-@section('header')
-    
-@endsection
-
 @section('main')
-    <div class="my-5 row">
-        <div class="card m-auto col-10">
+        <div class="card m-auto col-10 border-0">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <span>PRODUCTOS</span>
@@ -59,9 +54,4 @@
                 </div>
             </div>
         </div>
-    </div>
-@endsection
-
-@section('footer')
-    
 @endsection

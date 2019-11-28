@@ -5,8 +5,7 @@
 @endsection
 
 @section('main')
-    <div class="my-5 row">
-        <div class="card m-auto col-5">
+        <div class="card m-auto col-5 border-0">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <span>ESTADOS</span>
@@ -53,7 +52,6 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
 
 @section('footer')
