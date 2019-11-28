@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\models\Product;
+use App\models\Section;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -28,7 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('Product.add');
+        $sections = Section::all();
+        return view('Product.add', compact('sections'));
     }
 
     /**
@@ -39,6 +41,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request['state_id'] = 1;
         Product::create($request->all());
 
         return redirect()->route('Product.index');
