@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\models\Product;
 use App\models\Section;
+use App\models\State;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -30,7 +31,7 @@ class ProductController extends Controller
     public function create()
     {
         $sections = Section::all();
-        return view('product.add', compact('sections'));
+        return view('product.create', compact('sections'));
     }
 
     /**
@@ -67,8 +68,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
+        $sections = Section::all();
+        $states = State::all();
 
-        return view('product.edit', compact('product'));
+        return view('product.edit', compact('product', 'sections', 'states'));
     }
 
     /**
