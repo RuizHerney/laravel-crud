@@ -30,7 +30,7 @@ class ProductController extends Controller
     public function create()
     {
         $sections = Section::all();
-        return view('Product.add', compact('sections'));
+        return view('product.add', compact('sections'));
     }
 
     /**
