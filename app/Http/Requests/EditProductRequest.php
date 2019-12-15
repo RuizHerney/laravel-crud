@@ -29,6 +29,7 @@ class EditProductRequest extends FormRequest
             'country_origin' => 'required|alpha|min:4|max:200',
             'price' => 'required|integer',
             'section_id' => 'required|integer',
+            'state_id' => 'required|integer',
         ];  
     }
 }
