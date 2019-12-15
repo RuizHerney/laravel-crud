@@ -11,28 +11,43 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Nombre:</label>
-                        <input type="text" class="form-control" name="name" value="{{ $product->name }}">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $product->name }}">
                     </div>
+                    @error('name')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Precio:</label>
-                        <input type="number" class="form-control" name="price" value="{{ $product->price }}">
+                        <input type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $product->price }}">
                     </div>
+                    @error('price')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Pais Origen:</label>
-                        <input type="text" class="form-control" name="country_origin"
+                        <input type="text" class="form-control @error('country_origin') is-invalid @enderror" name="country_origin"
                             value="{{ $product->country_origin }}">
                     </div>
+                    @error('country_origin')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="section_id">Seccion:</label>
-                        <select name="section_id" class="form-control" id="">
+                        <select name="section_id" class="form-control @error('section_id') is-invalid @enderror" id="">
                             <option value="">Seleccione...</option>
                             @foreach ($sections as $section)
                             <option @if ($section->id == $product->section_id) {{ 'selected' }} @endif
@@ -42,13 +57,18 @@
                             @endforeach
                         </select>
                     </div>
+                    @error('section_id')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="state_id">Estado:</label>
-                        <select name="state_id" class="form-control" id="">
+                        <select name="state_id" class="form-control @error('state_id') is-invalid @enderror" id="">
                             <option value="">Seleccione...</option>
                             @foreach ($states as $state)
                             <option @if ($state->id == $product->state_id) {{ 'selected' }} @endif
@@ -58,6 +78,11 @@
                             @endforeach
                         </select>
                     </div>
+                    @error('state_id')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
             </div>
         </div>

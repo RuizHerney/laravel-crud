@@ -14,13 +14,19 @@ class AddForeignKeys extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            
+
             $table->bigInteger('section_id')->unsigned();
             $table->bigInteger('state_id')->unsigned();
 
-            $table->foreign('section_id')->references('id')->on('sections');
-            $table->foreign('state_id')->references('id')->on('states');
+            $table->foreign('section_id')
+                ->references('id')
+                ->on('sections')
+                ->onDelete('cascade');
 
+            $table->foreign('state_id')
+                ->references('id')
+                ->on('states')
+                ->onDelete('cascade');
         });
     }
 

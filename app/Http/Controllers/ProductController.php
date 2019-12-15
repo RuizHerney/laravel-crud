@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddProductRequest;
+use App\Http\Requests\EditProductRequest;
 use App\models\Product;
 use App\models\Section;
 use App\models\State;
@@ -40,7 +42,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddProductRequest $request)
     {
         $request['state_id'] = 1;
         Product::create($request->all());
@@ -81,7 +83,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditProductRequest $request, $id)
     {
         $product = Product::findOrFail($id);
 

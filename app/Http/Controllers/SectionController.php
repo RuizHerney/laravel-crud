@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddSectionRequest;
+use App\Http\Requests\EditSectionRequest;
 use App\models\Section;
 use Illuminate\Http\Request;
 
@@ -35,7 +37,7 @@ class SectionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddSectionRequest $request)
     {
         Section::create($request->all());
 
@@ -73,7 +75,7 @@ class SectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditSectionRequest $request, $id)
     {
         $section = Section::findOrFail($id);
 

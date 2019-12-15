@@ -11,27 +11,42 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Nombre:</label>
-                        <input type="text" class="form-control" name="name" value="">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="">
                     </div>
+                    @error('name')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Precio:</label>
-                        <input type="number" class="form-control" name="price" value="">
+                        <input type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="">
                     </div>
+                    @error('price')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Pais Origen:</label>
-                        <input type="text" class="form-control" name="country_origin" value="">
+                        <input type="text" class="form-control @error('country_origin') is-invalid @enderror" name="country_origin" value="">
                     </div>
+                    @error('country_origin')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="section_id">Seccion:</label>
-                        <select name="section_id" class="form-control" id="">
+                        <select name="section_id" class="form-control @error('section_id') is-invalid @enderror" id="">
                             <option value="">Seleccione...</option>
                             @foreach ($sections as $section)
                             <option value="{{ $section->id }}">
@@ -40,6 +55,11 @@
                             @endforeach
                         </select>
                     </div>
+                    @error('section_id')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
             </div>
         </div>

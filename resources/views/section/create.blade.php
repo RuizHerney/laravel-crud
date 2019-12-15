@@ -6,14 +6,22 @@
         <h4>Agregar Seccion</h4>
     </div>
     <form action="{{ route('Section.store') }}" method="POST">
+
         <div class="card-body">
             <div class="form-group">
                 <label for="name">Nombre</label>
-                <input type="text" name="name" class="form-control" id="">
+                <input type="text" name="name" class="form-control @error('name')is-invalid @enderror" id="">
             </div>
+            @error('name')
+                <div class="alert alert-danger">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
+
         @csrf
         @method('POST')
+
         <div class="card-footer">
             <div class="text-right">
                 <button class="btn btn-primary">Guardar</button>

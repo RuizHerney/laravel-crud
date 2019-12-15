@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddStateRequest;
+use App\Http\Requests\EditStateRequest;
 use App\models\State;
 use Illuminate\Http\Request;
 
@@ -35,7 +37,7 @@ class StateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddStateRequest $request)
     {
         State::create($request->all());
 
@@ -73,7 +75,7 @@ class StateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditStateRequest $request, $id)
     {
         $state = State::findOrFail($id);
 
