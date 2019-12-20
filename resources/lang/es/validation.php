@@ -147,10 +147,10 @@ return [
     */
 
     'attributes' => [
-        'name'          => 'Nombre',
-        'price'          => 'Precio',
-        'country_origin'          => 'Pais origen',
-        'section_id'          => 'Seccion',
+        'name'              => 'Nombre',
+        'price'             => 'Precio',
+        'country_origin'    => 'Pais origen',
+        'section_id'        => 'Seccion',
         'state_id'          => 'Estado',
     ],
 
