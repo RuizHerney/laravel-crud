@@ -13,10 +13,7 @@ class ProductTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * A basic feature test example.
-     *
      * @test
-     * @return void
      */
     public function a_user_can_create_product()
     {
@@ -27,18 +24,34 @@ class ProductTest extends TestCase
             StateSeeder::class
         ]);
 
-        $this->post(route('Product.store'), [
+        $response = $this->post(route('Product.store'), [
             'name'              => 'camisa',
             'price'             => 200,
             'country_origin'    => 'Colombia',
             'section_id'           => 1
         ]);
 
+        $response->assertRedirect(route('Product.index'));
+
         $this->assertDatabaseHas('products', [
             'name'              => 'camisa',
             'price'             => 200,
             'country_origin'    => 'Colombia',
-            'section_id'           => 1
+            'section_id'        => 1
         ]);
     }
-}
+
+    /**
+     * @test
+     */
+    public function a_product_required_name()
+    {
+        $response = $this->post(route('Product.store'), [
+            'name' => ''
+        ]);
+
+        $response->assertStatus(302);
+
+        $response->assertSessionHasErrors('name');
+    }
+} # End class ProductTest
