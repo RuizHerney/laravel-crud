@@ -83,7 +83,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditProductRequest $request, $id)
+    public function update(EditProductRequest $request, Int $id)
     {
         $product = Product::findOrFail($id);
 
