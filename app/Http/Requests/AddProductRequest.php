@@ -24,10 +24,10 @@ class AddProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|alpha|unique:products|max:200',
-            'country_origin' => 'required|alpha|min:4|max:200',
+            'name' => 'required|alpha|unique:products|max:10|min:4',
+            'country_origin' => 'required|alpha|min:4|max:15',
             'price' => 'required|integer',
-            'section_id' => 'required|integer',
+            'section_id' => 'integer',
         ];
     }
 }
