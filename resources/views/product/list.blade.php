@@ -43,7 +43,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-outline-danger">
-                                            <img width="30px" src="{{ asset('src/icons/edit.svg')}}" alt="">
+                                            <img width="30px" src="{{ asset('src/icons/delete.svg')}}" alt="">
                                         </button>
                                    </form>
                                 </td>
